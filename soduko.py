@@ -1,4 +1,4 @@
-#Soduko by albac
+#Soduko validator by albac
 
 def check_duplicates(soduko_set):
     return len(soduko_set) == len(set(soduko_set))
@@ -63,20 +63,6 @@ def check_box(matrix):
         return False
     return True
 
-def is_valid_solution(grid):
-    if not grid.isdigit():
-        print "Is not digit"
-        return False
-    initial_matrix=get_matrix(grid)
-    if not check_horizontal(initial_matrix):
-        return False
-    if not check_vertical(initial_matrix):
-        return False
-    if not check_box(initial_matrix):
-        return False
-    return True
-
-
 def get_matrix(grid):
     grid_array=list(grid)
     temp={}
@@ -91,6 +77,18 @@ def get_matrix(grid):
         c = c + 9
     return matrix
 
+def is_valid_solution(grid):
+    if not grid.isdigit():
+        print "Is not digit"
+        return False
+    initial_matrix=get_matrix(grid)
+    if not check_horizontal(initial_matrix):
+        return False
+    if not check_vertical(initial_matrix):
+        return False
+    if not check_box(initial_matrix):
+        return False
+    return True
 
 #grid="124567389213456789456123789134567289213456789456123789134567289213456789456123789"
 grid="835416927296857431417293658569134782123678549748529163652781394981345276374962815"
